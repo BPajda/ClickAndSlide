@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <title>Click&Slide</title>
+    <style>
+        html {
+            background-color: rgb(7, 7, 48);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(7, 7, 48)
+        }
+
+        #plansza {
+            position: absolute;
+            background-color: blueviolet;
+            width: 480px;
+            height: 480px;
+            top: 310px;
+            left: 75px;
+            border: solid darkmagenta 3px;
+            box-shadow: 0 4px 8px 0 magenta, 0 6px 20px 0 red;
+        }
+
+        #TOP10 {
+            position: absolute;
+            left: 650px;
+            height: 100%;
+            width: 400px;
+            background-color: blueviolet;
+            box-shadow: 0 4px 8px 0 magenta, 0 6px 20px 0 red;
+
+        }
+
+        #x3 {
+            position: absolute;
+            height: 25%;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        #x4 {
+            position: absolute;
+            height: 25%;
+            width: 100%;
+            top: 25%;
+            text-align: center;
+        }
+
+        #x5 {
+            position: absolute;
+            height: 25%;
+            width: 100%;
+            top: 50%;
+            text-align: center;
+        }
+
+        #x6 {
+            position: absolute;
+            height: 25%;
+            width: 100%;
+            top: 75%;
+            text-align: center;
+        }
+
+        #przyciski {
+            position: absolute;
+            top: 220px;
+            left: 215px;
+
+        }
+
+        #prev {
+            position: absolute;
+            left: 160px;
+            top: 100px;
+            color: blueviolet;
+            font-size: 40px;
+            text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        }
+
+        #next {
+            position: absolute;
+            left: 430px;
+            top: 100px;
+            color: blueviolet;
+            font-size: 40px;
+            text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+        }
+
+        #contSlider {
+            left: 210px;
+            position: absolute;
+        }
+
+        #slider {
+            display: flex;
+            height: 200px;
+            width: 200px;
+            overflow: hidden;
+            left: 210px;
+            border: solid blueviolet 3px;
+            box-shadow: 0 4px 8px 0 magenta, 0 6px 20px 0 red;
+        }
+
+        #zegar {
+            position: absolute;
+            left: 160px;
+            top: 255px;
+            width: 300px;
+            height: 40px;
+            background-color: blueviolet;
+            display: flex;
+        }
+
+        .obr {
+            height: 100%;
+            width: 100%;
+        }
+
+        .but {
+            background-color: blueviolet;
+            border-color: magenta;
+            box-shadow: 0 4px 8px 0 magenta, 0 6px 20px 0 red;
+        }
+
+        .div3 {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+        }
+
+        .div4 {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+        }
+
+        .div5 {
+            position: absolute;
+            width: 96px;
+            height: 96px;
+        }
+
+        .div6 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contSlider">
+        <div id="slider">
+            <img src="obrazek1.jpg" alt="arcade" class="obr">
+            <img src="obrazek2.jpg" alt="cards" class="obr">
+            <img src="obrazek3.jpg" alt="controller" class="obr">
+            <img src="obrazek1.jpg" alt="arcade" class="obr">
+        </div>
+    </div>
+    <div id="przyciski">
+        <button onclick="mieszaj(3)" class="but">3 x 3</button>
+        <button onclick="mieszaj(4)" class="but">4 x 4</button>
+        <button onclick="mieszaj(5)" class="but">5 x 5</button>
+        <button onclick="mieszaj(6)" class="but">6 x 6</button>
+    </div>
+    <div id="zegar">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/colon.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/colon.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/dot.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+        <img src="./time/c0.gif" alt="">
+    </div>
+    <div id="plansza">
+
+    </div>
+    <div id="TOP10">
+        <div id="x3">
+            <h3>Top 10 Tryb 3 x 3</h3>
+            <div class="wynik3">1)</div>
+            <div class="wynik3">2)</div>
+            <div class="wynik3">3)</div>
+            <div class="wynik3">4)</div>
+            <div class="wynik3">5)</div>
+            <div class="wynik3">6)</div>
+            <div class="wynik3">7)</div>
+            <div class="wynik3">8}</div>
+            <div class="wynik3">9)</div>
+            <div class="wynik3">10)</div>
+        </div>
+        <div id="x4">
+            <h3>Top 10 Tryb 4 x 4</h3>
+            <div class="wynik4">1)</div>
+            <div class="wynik4">2)</div>
+            <div class="wynik4">3)</div>
+            <div class="wynik4">4)</div>
+            <div class="wynik4">5)</div>
+            <div class="wynik4">6)</div>
+            <div class="wynik4">7)</div>
+            <div class="wynik4">8}</div>
+            <div class="wynik4">9)</div>
+            <div class="wynik4">10)</div>
+        </div>
+
+        <div id="x5">
+            <h3>Top 10 Tryb 5 x 5</h3>
+            <div class="wynik5">1)</div>
+            <div class="wynik5">2)</div>
+            <div class="wynik5">3)</div>
+            <div class="wynik5">4)</div>
+            <div class="wynik5">5)</div>
+            <div class="wynik5">6)</div>
+            <div class="wynik5">7)</div>
+            <div class="wynik5">8}</div>
+            <div class="wynik5">9)</div>
+            <div class="wynik5">10)</div>
+        </div>
+
+        <div id="x6">
+            <h3>Top 10 Tryb 6 x 6</h3>
+            <div class="wynik6">1)</div>
+            <div class="wynik6">2)</div>
+            <div class="wynik6">3)</div>
+            <div class="wynik6">4)</div>
+            <div class="wynik6">5)</div>
+            <div class="wynik6">6)</div>
+            <div class="wynik6">7)</div>
+            <div class="wynik6">8}</div>
+            <div class="wynik6">9)</div>
+            <div class="wynik6">10)</div>
+        </div>
+    </div>
+
+    <i class="fas fa-caret-square-left" id="prev" onclick="prev()"></i>
+    <!-- <button id="prev" onclick="prev()">prev</button> -->
+    <i class="fas fa-caret-square-right" id="next" onclick=next()></i>
+    <!-- <button id="next" onclick=next()>next</button> -->
+    <script>
+        let dzielnik
+        let InterZegar
+        let czasGry
+        let now
+        let tab = []
+        let tab1 = []
+        let pusty
+        let obrazekteraz = ""
+        let scroll = 0
+        let zegar = document.getElementById("zegar")
+        let slider = document.getElementById("slider")
+        function mieszaj(x) {
+            dzielnik = x
+            let plansza = document.getElementById("plansza")
+            //zabijanie dzieci (prawie widelcem)
+            plansza.innerHTML = ""
+            tab = []
+            //tworzenie nowych blokow
+            for (let i = 0; i < x; i++) {
+                for (let j = 0; j < x; j++) {
+                    let div = document.createElement("div")
+
+                    div.classList.add("div" + x)
+                    if (i != x - 1 || j != x - 1) {
+                        if (scroll == 0 || scroll == 3) {
+                            obrazekteraz = "obrazek1.jpg"
+                        } else if (scroll == 1) {
+                            obrazekteraz = "obrazek2.jpg"
+                        } else {
+                            obrazekteraz = "obrazek3.jpg"
+                        }
+                        div.style.backgroundImage = `url(${obrazekteraz})`
+                        let rozTla = 100 / (x - 1)
+                        div.style.backgroundPositionY = (i * rozTla) + "%"
+                        div.style.backgroundPositionX = (j * rozTla) + "%"
+                    }
+                    let rozBloku = 100 / x
+                    div.style.top = (i * rozBloku) + "%"
+                    div.style.left = (j * rozBloku) + "%"
+
+                    plansza.appendChild(div)
+                    let obiektdiv = {
+                        x: x,
+                        divek: div,
+                        rzad: i,
+                        kolumna: j,
+                        przesuwanie: function () {
+                            let top = parseFloat(this.divek.style.top)
+                            let left = parseFloat(this.divek.style.left)
+                            let pusTop = parseFloat(pusty.divek.style.top)
+                            let pusLeft = parseFloat(pusty.divek.style.left)
+
+                            if ((pusty.rzad - 1 == this.rzad && pusty.kolumna == this.kolumna) ^
+                                (pusty.rzad + 1 == this.rzad && pusty.kolumna == this.kolumna) ^
+                                (pusty.kolumna - 1 == this.kolumna && pusty.rzad == this.rzad) ^
+                                (pusty.kolumna + 1 == this.kolumna && pusty.rzad == this.rzad)) {
+                                this.divek.style.top = pusTop + "%"
+                                this.divek.style.left = pusLeft + "%"
+                                pusty.divek.style.top = top + "%"
+                                pusty.divek.style.left = left + "%"
+                                staryRzadPus = pusty.rzad
+                                staryKolumnaPus = pusty.kolumna
+                                pusty.rzad = this.rzad
+                                pusty.kolumna = this.kolumna
+                                this.rzad = staryRzadPus
+                                this.kolumna = staryKolumnaPus
+
+                                return true
+
+                            } else {
+
+                                return false
+                            }
+                        }
+
+                    }
+                    let obiektdivek = {
+                        rzad: i,
+                        kolumna: j,
+
+                    }
+                    tab1.push(obiektdivek)
+                    tab.push(obiektdiv)
+                    if (i == x - 1 && j == x - 1) {
+                        pusty = obiektdiv
+                    }
+                    div.onclick = () => {
+                        obiektdiv.przesuwanie()
+                        sprawdzWygrana(x)
+                    }
+
+                }
+            }
+            //mieszanie planszy
+            let inter = 0
+            let interMieszanie = setInterval(() => {
+                inter++
+                if (inter > x * x * x) {
+                    now = Date.now()
+                    InterZegar = setInterval(() => {
+                        timer()
+                    }, 1);
+                    clearInterval(interMieszanie)
+
+                }
+                do {
+                    let it = 0
+                    it++;
+                    if (it > 100) { console.log('ERROR, mieszanie to long !!!!'); break; }
+                    czyprzesunelo = tab[Math.floor(Math.random() * x * x)].przesuwanie()
+
+                } while (czyprzesunelo == false)
+
+            }, 100);
+
+
+        }
+        slider.scrollLeft = 0
+
+        function next() {
+
+            if (scroll > 2) {
+                slider.scrollLeft = 0
+                slide(200)
+                scroll = 1
+            } else {
+                scroll += 1
+                slide(200)
+
+            }
+        }
+        function prev() {
+            if (scroll == 0) {
+                scroll = 2
+                slider.scrollLeft = 600
+                slide(-200)
+            } else {
+                scroll -= 1
+                slide(-200)
+            }
+
+        }
+        function slide(x) {
+            let j = 0
+            let przesuwanie = setInterval(function () {
+                slider.scrollLeft += x / 10
+                j++
+                if (j == 10) {
+                    clearInterval(przesuwanie)
+                }
+            }, 50)
+        }
+        function timer() {
+            let czas = Date.now()
+            czasGry = czas - now
+            let obDaty = new Date(czasGry)
+            zegar.children[0].src = "./time/c" + ("0" + (obDaty.getHours() - 1)).slice(-2, -1) + ".gif"
+            zegar.children[1].src = "./time/c" + ("0" + (obDaty.getHours() - 1)).slice(-1) + ".gif"
+            zegar.children[3].src = "./time/c" + ("0" + obDaty.getMinutes()).slice(-2, -1) + ".gif"
+            zegar.children[4].src = "./time/c" + ("0" + obDaty.getMinutes()).slice(-1) + ".gif"
+            zegar.children[6].src = "./time/c" + ("0" + obDaty.getSeconds()).slice(-2, -1) + ".gif"
+            zegar.children[7].src = "./time/c" + ("0" + obDaty.getSeconds()).slice(-1) + ".gif"
+            zegar.children[9].src = "./time/c" + ("00" + obDaty.getMilliseconds()).slice(-3, -2) + ".gif"
+            zegar.children[10].src = "./time/c" + ("00" + obDaty.getMilliseconds()).slice(-2, -1) + ".gif"
+            zegar.children[11].src = "./time/c" + ("00" + obDaty.getMilliseconds()).slice(-1) + ".gif"
+
+        }
+        function wygrana() {
+            setTimeout(() => {
+                clearInterval(InterZegar)
+                setTimeout(() => {
+                    let zwyciestwo = czasGry
+                    let milisekundy = zwyciestwo
+                    let sekundy = 0
+                    let minuty = 0
+                    let godziny = 0
+                    while (milisekundy > 1000) {
+                        sekundy++
+                        milisekundy -= 1000
+                        while (sekundy > 60) {
+                            minuty++
+                            sekundy -= 60
+                            while (minuty > 60) {
+                                godziny++
+                                minuty -= 60
+                            }
+                        }
+                    }
+                    zwyciestwo = (('0' + godziny).slice(-2) + ":" + ('0' + minuty).slice(-2) + ":" + ('0' + sekundy).slice(-2) + "." + ('00' + milisekundy).slice(-3))
+
+
+
+                    let aktTablicaCookie = document.cookie.split("; ")
+                    console.log(aktTablicaCookie);
+                    aktTablicaCookie = aktTablicaCookie.find(function (element) {
+                        if (element.slice(0, 5) == 'tryb' + dzielnik) {
+                            return true
+                        }
+                    })
+                    aktTablicaCookie = aktTablicaCookie.split("=")[1]
+                    console.log(aktTablicaCookie);
+                    aktTablicaCookie = JSON.parse(aktTablicaCookie)
+                    console.log(aktTablicaCookie);
+
+
+                    let nick = prompt("wygrałeś!! Twój czas to: " + zwyciestwo + " podaj swoję imię przywoływaczu: ")
+                    aktTablicaCookie.push([nick, zwyciestwo, czasGry])
+                    aktTablicaCookie.sort(function (a, b) {
+                        return a[2] - b[2]
+
+                    })
+                    if (aktTablicaCookie.length > 10) {
+                        aktTablicaCookie.pop()
+                    }
+                    aktTablicaCookie = JSON.stringify(aktTablicaCookie)
+                    console.log('2', aktTablicaCookie);
+                    document.cookie = `tryb${dzielnik}=${aktTablicaCookie};Expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toUTCString()}`
+                    ciepleCiasteczka()
+                }, 10);
+            }, 10);
+
+        }
+        function sprawdzWygrana(x) {
+            let RozniaSie = false
+            for (let i = 0; i < x * x; i++) {
+                if (tab[i].rzad != tab1[i].rzad ||
+                    tab[i].kolumna != tab1[i].kolumna) {
+                    RozniaSie = true
+                }
+
+            }
+            if (RozniaSie == false) {
+                wygrana()
+
+            }
+
+        }
+        function pieczenie() {
+            document.cookie
+            if (document.cookie == "") {
+                document.cookie = `tryb3=[];Expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toUTCString()}`
+                document.cookie = `tryb4=[];Expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toUTCString()}`
+                document.cookie = `tryb5=[];Expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toUTCString()}`
+                document.cookie = `tryb6=[];Expires=${new Date(Date.now() + 1000 * 60 * 60 * 24 * 3).toUTCString()}`
+            }
+        }
+        function ciepleCiasteczka() {
+            for (let i = 3; i < 7; i++) {
+                let przedszkole = document.getElementsByClassName("wynik" + i)
+                let aktTablicaCookie = document.cookie.split("; ")
+                aktTablicaCookie = aktTablicaCookie.find(function (element) {
+                    if (element.slice(0, 5) == 'tryb' + i) {
+                        return true
+                    }
+                })
+                aktTablicaCookie = aktTablicaCookie.split("=")[1]
+                aktTablicaCookie = JSON.parse(aktTablicaCookie)
+                for (let j = 0; j < aktTablicaCookie.length; j++) {
+                    przedszkole[j].innerText = `${j + 1} miejsce zajmuje ${aktTablicaCookie[j][0]} z czasem ${aktTablicaCookie[j][1]}`
+                }
+
+            }
+        }
+        pieczenie()
+        ciepleCiasteczka()
+        console.log(document.cookie)
+
+    </script>
+</body>
+
+</html>
